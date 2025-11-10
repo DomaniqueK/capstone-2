@@ -8,7 +8,7 @@ public class HomeScreen {
         displayHomeScreen();
     }
 
-    private static void displayHomeScreen() {
+    public static void displayHomeScreen() {
         boolean running = true;
         while (running) {
             System.out.println("\n Home Screen \n");
@@ -20,13 +20,13 @@ public class HomeScreen {
             String choice = scanner.nextLine().toUpperCase().trim();
             switch (choice) {
                 case "1":
-                    newOrder();
+                    OrderScreen.newOrder();
                     break;
                 case "2":
                     running = false;
                     System.out.println("Exiting Application");
                 default:
-                    System.out.println("Invalid choice! Please select: 1 or 2 1");
+                    System.out.println("Invalid choice! Please select: 1 or 2 ");
             }
         }
     }
