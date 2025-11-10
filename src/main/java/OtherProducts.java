@@ -31,7 +31,7 @@ public class OtherProducts {
     }
 
     public static void getDrink() {
-        System.out.println("What kind of drink would you like? \n" +
+        System.out.println("\n What kind of drink would you like? \n" +
                 "Coke \n" +
                 "Diet coke \n" +
                 "Rootbeer \n" +
