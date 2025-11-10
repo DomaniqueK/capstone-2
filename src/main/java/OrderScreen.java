@@ -21,11 +21,11 @@ public class OrderScreen {
             String choice = scanner.nextLine().toUpperCase().trim();
             switch (choice) {
                 case "1":
-   //                 pizza;
+        //             Pizza;
                 case "2":
-    //                drinks;
+                    OtherProducts.getDrink();
                 case "3":
-   //                 garlicKnots;
+                    OtherProducts.getGarlicKnots();
                 case "4":
                     Checkout.checkout();
                 case "5":
