@@ -69,4 +69,13 @@ public class Pizza {
         double included = 0.0;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public ArrayList<String> getSummary(ArrayList<String> premiumMeat, ArrayList<String> premiumCheese) {
+       return premiumCheese;
+
+    }
+
 }
