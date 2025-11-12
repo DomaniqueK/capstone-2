@@ -5,11 +5,10 @@ public class Checkout {
     }
 
     public static void main(String[] args) {
-        cancelOrder();
-        confirmation();
+
     }
 
-    public static void confirmation() {
+    public void checkout() {
         System.out.println("-----------------------------------");
         System.out.println("           Order Details           ");
         System.out.println("-----------------------------------");
@@ -23,7 +22,7 @@ public class Checkout {
         System.out.println("Thank you for your order! Please come again!");
     }
 
-    public static void cancelOrder() {
+    public void cancelOrder() {
 
     }
 }

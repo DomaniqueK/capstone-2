@@ -4,7 +4,7 @@ public class OrderScreen {
    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        newOrder();
+
     }
 
     public static void newOrder() {
@@ -32,11 +32,11 @@ public class OrderScreen {
                     OtherProducts.getGarlicKnots();
                     break;
                 case "4":
-                    Checkout.();
+                    confirmation.checkout();
                     running = false;
                     break;
                 case "5":
-                    Checkout.cancelOrder();
+                    confirmation.cancelOrder();
                     running = false;
                     break;
                 default:

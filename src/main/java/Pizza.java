@@ -4,7 +4,7 @@ public class Pizza {
     ArrayList<String> premiumMeat = new ArrayList<>();
     ArrayList<String> premiumCheese = new ArrayList<>();
     ArrayList<String> includedToppings = new ArrayList<>();
-    double price;
+    double totalPrice;
     String meat;
     String cheese;
     String size;
@@ -33,7 +33,7 @@ public class Pizza {
                 }
             }
         }
-        this.price += meatPrice;
+        this.totalPrice += meatPrice;
     }
 
     public void addCheese(String cheese) {
@@ -61,7 +61,7 @@ public class Pizza {
                 }
             }
         }
-        this.price += cheesePrice;
+        this.totalPrice += cheesePrice;
     }
 
     public void addIncludedToppings(String toppingsIncluded) {
@@ -70,7 +70,7 @@ public class Pizza {
     }
 
     public double getPrice() {
-        return price;
+        return totalPrice;
     }
 
     public ArrayList<String> getSummary(ArrayList<String> premiumMeat, ArrayList<String> premiumCheese) {

@@ -13,7 +13,7 @@ public class Receipt {
         generateTime();
     }
 
-    public static void saveReceipt() {
+    public static void saveReceipt(OrderScreen order) {
         try {
             FileWriter fileWriter = new FileWriter("src/main/resources/receipt.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
