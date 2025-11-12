@@ -8,6 +8,8 @@ public class OrderScreen {
     }
 
     public static void newOrder() {
+        Pizza currentPizza = new Pizza();
+        Checkout confirmation = new Checkout(currentPizza);
         boolean running = true;
         while (running) {
             System.out.println("\n Order Screen \n");
@@ -22,14 +24,21 @@ public class OrderScreen {
             switch (choice) {
                 case "1":
         //             Pizza;
+                    break;
                 case "2":
                     OtherProducts.getDrink();
+                    break;
                 case "3":
                     OtherProducts.getGarlicKnots();
+                    break;
                 case "4":
-                    Checkout.checkout();
+                    Checkout.();
+                    running = false;
+                    break;
                 case "5":
                     Checkout.cancelOrder();
+                    running = false;
+                    break;
                 default:
                     System.out.println("Invalid choice! Please select and option in range (1-5)!");
             }
