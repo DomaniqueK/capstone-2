@@ -1,17 +1,15 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class Receipt {
     Pizza currentOrder;
 
-    public static void saveReceipt(Pizza order) {
+    public static void saveReceipt(Order currentOrder) {
         String time = generateTime();
+        Pizza pizza = currentOrder.getCurrentPizza();
         try {
             FileWriter fileWriter = new FileWriter("src/main/resources/receipt.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -19,16 +17,22 @@ public class Receipt {
             bufferedWriter.write("Receipt: \n");
             bufferedWriter.write("Nique's Pizza-Licious Pizzeria \n");
             bufferedWriter.write("Order date: " + time + "\n");
-            for (String selection : order.premiumMeat) {
+            for (String selection : pizza.getPremiumMeat()) {
                 bufferedWriter.write("Meat: " + selection + "\n");
             }
-            for (String selection: order.premiumCheese) {
+            for (String selection: pizza.getPremiumCheese()) {
                 bufferedWriter.write("Cheese: " + selection + "\n");
             }
-            for (String selection : order.includedToppings) {
+            for (String selection : pizza.getIncludedToppings()) {
                 bufferedWriter.write("Included Toppings: " + selection + "\n");
             }
-            bufferedWriter.write("\n Total: $ " + order.totalPrice + "\n");
+            for (String selection : currentOrder.getDrinks()) {
+                bufferedWriter.write("Drink: " + selection + "\n");
+            }
+            for (String selection : currentOrder.getGarlicKnots()) {
+                bufferedWriter.write("Garlic Knots: " + selection + "\n");
+            }
+            bufferedWriter.write("\n Total: $ " + currentOrder.getTotalPrice() + "\n");
             bufferedWriter.write("Visit us again soon!");
 
             bufferedWriter.close();
