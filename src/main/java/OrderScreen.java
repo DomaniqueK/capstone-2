@@ -76,7 +76,7 @@ public class OrderScreen {
         }
 
         Pizza newPizza = new Pizza();
-        newPizza.sizeAndBasePrice(size);
+        newPizza.setSizeAndBasePrice(size);
         return newPizza;
     }
 }

@@ -13,25 +13,6 @@ public class Pizza {
     String size;
     String toppingsIncluded;
 
-    public Pizza(String size) {
-        this.size = size;
-        basePrice(size);
-    }
-
-    private void basePrice(String size) {
-        if (size.equalsIgnoreCase("8-inch")) {
-            this.totalPrice = eightInch;
-        } else if (size.equalsIgnoreCase("12-inch")) {
-            this.totalPrice = twelveInch;
-        } else if (size.equalsIgnoreCase("16-inch")) {
-            this.totalPrice = sixteenInch;
-        }
-        else {
-            this.totalPrice = 0.0;
-            System.out.println("Error: invalid pizza size!");
-        }
-    }
-
     public void addMeat(String meat) {
         this.premiumMeat.add(meat);
         double meatPrice = 0.0;
@@ -111,7 +92,7 @@ public class Pizza {
     public Pizza() {
 
     }
-    public void sizeAndBasePrice(String size) {
+    public void setSizeAndBasePrice(String size) {
         this.size = size;
 
         if (size.equalsIgnoreCase("8-inch")) {
