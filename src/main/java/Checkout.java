@@ -17,7 +17,7 @@ public class Checkout {
         System.out.println("Garlic Knots: " + this.currentOrder.getGarlicKnots());
         double checkoutPrice = this.currentOrder.getTotalPrice();
         System.out.println("-----------------------------------");
-        System.out.printf("Total: $%2f%n", + checkoutPrice);
+        System.out.printf("Total: $%.2f%n", + checkoutPrice);
         System.out.println("Thank you for your order! Please come again!");
     }
 

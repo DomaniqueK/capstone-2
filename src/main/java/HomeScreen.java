@@ -25,6 +25,7 @@ public class HomeScreen {
                 case "2":
                     running = false;
                     System.out.println("Exiting Application");
+                    break;
                 default:
                     System.out.println("Invalid choice! Please select: 1 or 2 ");
             }

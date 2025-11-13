@@ -17,7 +17,6 @@ public class Pizza {
         this.premiumMeat.add(meat);
         double meatPrice = 0.0;
         double extraMeat = 0.0;
-        if (meat.equalsIgnoreCase("Extra meat")) {
 
             if (this.size.equalsIgnoreCase("8-inch")) {
                 meatPrice = 1.00;
@@ -28,14 +27,12 @@ public class Pizza {
             } else if (this.size.equalsIgnoreCase("16-inch")) {
                 meatPrice = 3.00;
                 extraMeat = 1.50;
-
             }
             else {
                 System.out.println("Error! Please select pizza size!");
                 return;
                 }
-            }
-        if (meat.equalsIgnoreCase("Extra meat")) {
+        if (meat.equalsIgnoreCase(Selections.extraMeat)) {
             meatPrice += extraMeat;
         }
         this.totalPrice += meatPrice;
@@ -45,28 +42,26 @@ public class Pizza {
         double cheesePrice = 0.00;
         double extraCheese = 0.00;
         this.premiumCheese.add(cheese);
-        if (cheese.equalsIgnoreCase("Extra cheese")) {
 
             if (this.size.equalsIgnoreCase("8-inch")) {
                 cheesePrice = .75;
                 extraCheese = .30;
             }
-            if (this.size.equalsIgnoreCase("12-inch")) {
+            else if (this.size.equalsIgnoreCase("12-inch")) {
                 cheesePrice = 1.50;
                 extraCheese = .60;
             }
-            if (this.size.equalsIgnoreCase("16-inch")) {
+            else if (this.size.equalsIgnoreCase("16-inch")) {
                 cheesePrice = 2.25;
                 extraCheese = .90;
-
             }
             else {
                 System.out.println("Error! Please select pizza size!");
-                if (cheese.equalsIgnoreCase("Extra cheese")) {
-                    cheesePrice += extraCheese;
-                }
+               return;
             }
-        }
+            if (cheese.equalsIgnoreCase(Selections.extraCheese)) {
+                cheesePrice += extraCheese;
+            }
         this.totalPrice += cheesePrice;
     }
 
