@@ -7,6 +7,7 @@ public class OrderScreen {
     public static void newOrder() {
         Pizza currentPizza = new Pizza();
         Order currentOrder = new Order(currentPizza);
+        OtherProducts otherProducts = new OtherProducts(currentOrder,scanner);
         Checkout confirmation = new Checkout(currentOrder);
         boolean running = true;
         while (running) {
@@ -24,10 +25,10 @@ public class OrderScreen {
         //             Pizza;
                     break;
                 case "2":
-                    currentOrder.addDrink("flavor", "size", 0.0 );
+                    otherProducts.getDrink();
                     break;
                 case "3":
-                    currentOrder.addGarlicKnots("size", 0.0);
+                    otherProducts.getGarlicKnots();
                     break;
                 case "4":
                     confirmation.checkout();

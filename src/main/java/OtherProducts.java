@@ -41,7 +41,7 @@ public class OtherProducts {
 
         if (drink != null && price > 0.0) {
             String flavorChoice = size + " " + drink;
-          //  this.currentOrder.addDrink(flavorChoice, 1, price);
+            this.currentOrder.addDrink(drink, size, price);
             System.out.printf("%s added for $%.2f.%n", flavorChoice, price);
         } else {
             System.out.println("Invalid selection please try again.");
