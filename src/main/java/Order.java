@@ -13,7 +13,7 @@ public class Order {
         this.otherProducts = 0.0;
     }
 
-    public void addDrink(String flavor, double price) {
+    public void addDrink(String flavor, String size, double price) {
         this.drinks.add(flavor);
         this.otherProducts += price;
     }

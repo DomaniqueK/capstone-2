@@ -1,7 +1,7 @@
 public class Checkout {
-    Pizza currentOrder;
-    public Checkout(Pizza pizza) {
-        this.currentOrder = pizza;
+    Order currentOrder;
+    public Checkout(Order order) {
+        this.currentOrder = order;
     }
 
     public static void main(String[] args) {
@@ -12,11 +12,10 @@ public class Checkout {
         System.out.println("-----------------------------------");
         System.out.println("           Order Details           ");
         System.out.println("-----------------------------------");
-        System.out.println("Size: " + this.currentOrder.size);
-        System.out.println("Meat Toppings: " + this.currentOrder.premiumMeat);
-        System.out.println("Cheese Toppings: " + this.currentOrder.premiumCheese);
-        System.out.println("Included Toppings: " + this.currentOrder.includedToppings);
-        double checkoutPrice = this.currentOrder.getPrice();
+        System.out.println("Size: " + this.currentOrder.getCurrentPizza().size);
+        System.out.println("Drinks: " + this.currentOrder.getDrinks());
+        System.out.println("Garlic Knots: " + this.currentOrder.getGarlicKnots());
+        double checkoutPrice = this.currentOrder.getTotalPrice();
         System.out.println("-----------------------------------");
         System.out.println("Total: $%2f%n," + checkoutPrice);
         System.out.println("Thank you for your order! Please come again!");
