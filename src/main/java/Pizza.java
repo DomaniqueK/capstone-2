@@ -108,4 +108,18 @@ public class Pizza {
         return includedToppings;
     }
 
+    public Pizza() {
+
+    }
+    public void sizeAndBasePrice(String size) {
+        this.size = size;
+
+        if (size.equalsIgnoreCase("8-inch")) {
+            this.totalPrice = 8.50;
+        } else if (size.equalsIgnoreCase("12-inch")) {
+            this.totalPrice = 12.00;
+        } else if (size.equalsIgnoreCase("16-inch")) {
+            this.totalPrice = 16.50;
+        }
+    }
 }

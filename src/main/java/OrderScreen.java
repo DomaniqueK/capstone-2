@@ -5,7 +5,7 @@ public class OrderScreen {
 
 
     public static void newOrder() {
-        Pizza currentPizza = new Pizza();
+        Pizza currentPizza = getPizzaSize();
         Order currentOrder = new Order(currentPizza);
         OtherProducts otherProducts = new OtherProducts(currentOrder,scanner);
         Checkout confirmation = new Checkout(currentOrder);
@@ -22,7 +22,7 @@ public class OrderScreen {
             String choice = scanner.nextLine().toUpperCase().trim();
             switch (choice) {
                 case "1":
-        //             Pizza;
+                    System.out.println("Pizza Customization....");
                     break;
                 case "2":
                     otherProducts.getDrink();
@@ -42,5 +42,41 @@ public class OrderScreen {
                     System.out.println("Invalid choice! Please select and option in range (1-5)!");
             }
         }
+    }
+    public static Pizza getPizzaSize() {
+        String size = "";
+        boolean validChoice = false;
+        double eightInch = 8.50;
+        double tweleveInch = 12.00;
+        double sixteenInch = 16.50;
+
+        while (!validChoice) {
+            System.out.println("\n Pizza Sizes: \n");
+            System.out.printf("1) 8-inch %.2f%n", eightInch);
+            System.out.printf("2) 12-inch %.2f%n", tweleveInch);
+            System.out.printf("3) 16-inch %.2f%n", sixteenInch);
+
+            String choice = scanner.nextLine().trim();
+            switch (choice) {
+                case "1":
+                    size = "8-inch";
+                    validChoice = true;
+                    break;
+                case "2":
+                    size = "12-inch";
+                    validChoice = true;
+                    break;
+                case "3":
+                    size = "16-inch";
+                    validChoice = true;
+                    break;
+                default:
+                    System.out.println("Invalid selection! Please try again!");
+            }
+        }
+
+        Pizza newPizza = new Pizza();
+        newPizza.sizeAndBasePrice(size);
+        return newPizza;
     }
 }
