@@ -6,6 +6,7 @@ public class OrderScreen {
 
     public static void newOrder() {
         Pizza currentPizza = getPizzaSize();
+        getCrust(currentPizza);
         Order currentOrder = new Order(currentPizza);
         OtherProducts otherProducts = new OtherProducts(currentOrder,scanner);
         Checkout confirmation = new Checkout(currentOrder);
@@ -111,7 +112,7 @@ public class OrderScreen {
     }
     private static void getMeat(Pizza pizza){
         boolean addingMeat = true;
-        while (addingMeat) {
+        while (true) {
             System.out.println("\n PREMIUM MEATS \n ");
             System.out.printf("1) %s%n", Selections.pepperoni);
             System.out.printf("2) %s%n", Selections.sausage);
@@ -161,12 +162,12 @@ public class OrderScreen {
 
     private static void getCheese(Pizza pizza) {
         boolean addingCheese = true;
-        while (addingCheese) {
-            System.out.println("\n PREMIUM CHESSE \n ");
-            System.out.printf("1) %s%n", Selections.pepperoni);
-            System.out.printf("2) %s%n", Selections.sausage);
-            System.out.printf("3) %s%n", Selections.ham);
-            System.out.printf("4) %s%n", Selections.bacon);
+        while (true) {
+            System.out.println("\n PREMIUM CHEESE \n ");
+            System.out.printf("1) %s%n", Selections.mozzarella);
+            System.out.printf("2) %s%n", Selections.parmesan);
+            System.out.printf("3) %s%n", Selections.ricotta);
+            System.out.printf("4) %s%n", Selections.extraCheese);
             System.out.println("5) Done Adding Cheese ");
             System.out.print("Enter selection (1-5): ");
 
@@ -199,7 +200,7 @@ public class OrderScreen {
 
     private static void getIncludedToppings(Pizza pizza) {
             boolean addingIncludedToppings = true;
-            while (addingIncludedToppings) {
+            while (true) {
                 System.out.println("\n INCLUDED TOPPINGS AND SAUCES (FREE )\n ");
                 System.out.printf("1) %s%n", Selections.onions);
                 System.out.printf("2) %s%n", Selections.bellPeppers);
@@ -261,5 +262,49 @@ public class OrderScreen {
                 pizza.addIncludedToppings(toppings);
                 System.out.printf("%s added! Current total: $%.2f%n", toppings, pizza.getPrice());
             }
+    }
+
+    private static void getCrust(Pizza pizza) {
+        boolean validChoice = false;
+        while (!validChoice) {
+            System.out.println("\n SELECT CRUST TYPE \n ");
+            System.out.printf("1) %s%n", Selections.thin);
+            System.out.printf("2) %s%n", Selections.regular);
+            System.out.printf("3) %s%n", Selections.thick);
+            System.out.printf("4) %s%n", Selections.stuffed);
+            System.out.printf("5) %s%n", Selections.cauliflower);
+            System.out.print("Enter selection (1-5): ");
+
+            String choice = scanner.nextLine().trim();
+            String crustType = "";
+            switch (choice) {
+                case "1":
+                    crustType = Selections.thin;
+                    validChoice = true;
+                    break;
+                case "2":
+                    crustType = Selections.regular;
+                    validChoice = true;
+                    break;
+                case "3":
+                    crustType = Selections.thick;
+                    validChoice = true;
+                    break;
+                case "4":
+                    crustType = Selections.stuffed;
+                    validChoice = true;
+                    break;
+                case "5":
+                    crustType = Selections.cauliflower;
+                    validChoice = true;
+                    break;
+                default:
+                    System.out.println("Invalid selection. Please choose an option (1-5).");
+            }
+            if (validChoice) {
+                pizza.setCrust(crustType);
+                System.out.printf("%s Crust type selected! ", crustType);
+            }
+        }
     }
 }

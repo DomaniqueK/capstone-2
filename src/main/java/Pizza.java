@@ -12,6 +12,7 @@ public class Pizza {
     String cheese;
     String size;
     String toppingsIncluded;
+    String crust;
 
     public void addMeat(String meat) {
         this.premiumMeat.add(meat);
@@ -97,5 +98,9 @@ public class Pizza {
         } else if (size.equalsIgnoreCase("16-inch")) {
             this.totalPrice = 16.50;
         }
+    }
+
+    public void setCrust(String crust) {
+        this.crust = crust;
     }
 }
