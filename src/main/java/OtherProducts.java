@@ -80,7 +80,13 @@ public class OtherProducts {
     public void getGarlicKnots() {
         double knotPrice = 1.50;
         String garlicKnots = "Small Garlic Knots";
-        System.out.printf("Adding Garlic Knots to your order for $%2f%n", knotPrice);
+        System.out.printf("Adding Garlic Knots to your order for $%2f%n. Enter yes to confirm or 'c' to cancel", knotPrice);
         String input = scanner.nextLine().trim();
+
+        if(!input.equalsIgnoreCase("c")) {
+            this.currentOrder.addGarlicKnots(garlicKnots, knotPrice);
+        } else {
+            System.out.println("No Garlic Knots for you!");
+        }
     }
 }
