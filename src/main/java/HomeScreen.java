@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class HomeScreen {
     static Scanner scanner = new Scanner(System.in);
-    static OrderScreen newOrder = new OrderScreen();
 
     public static void main(String[] args) {
         displayHomeScreen();
