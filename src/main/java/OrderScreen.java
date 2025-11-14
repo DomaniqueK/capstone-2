@@ -1,17 +1,17 @@
 import java.util.Scanner;
 
 public class OrderScreen {
-   static Scanner scanner = new Scanner(System.in);
+   static Scanner scanner = new Scanner(System.in); // Allows methods to be called directly from the home screen without needing to create an order object
 
 
-    public static void newOrder() {
+    public static void newOrder() { // This method correctly initializes all the core components needed for a new transaction
         Pizza currentPizza = getPizzaSize();
         getCrust(currentPizza);
         Order currentOrder = new Order(currentPizza);
         OtherProducts otherProducts = new OtherProducts(currentOrder,scanner);
         Checkout confirmation = new Checkout(currentOrder);
         boolean running = true;
-        while (running) {
+        while (running) { // provides the main menu for thr customer allowing them to repeatedly add sides or customize the pizza before checking out
             System.out.println("\n Order Screen \n");
             System.out.println("1) Pizza");
             System.out.println("2) Drinks");
@@ -21,7 +21,7 @@ public class OrderScreen {
             System.out.print("Enter your selection: ");
 
             String choice = scanner.nextLine().toUpperCase().trim();
-            switch (choice) {
+            switch (choice) { // Delegates the tasks to the appropriate classes/methods
                 case "1":
                     customizePizza(currentPizza);
                     break;
@@ -51,7 +51,7 @@ public class OrderScreen {
         double twelveInch = 12.00;
         double sixteenInch = 16.50;
 
-        while (!validChoice) {
+        while (!validChoice) { // Ensures the user cannot proceed until a selection is made
             System.out.println("\n Pizza Sizes: \n");
             System.out.printf("1) 8-inch %.2f%n", eightInch);
             System.out.printf("2) 12-inch %.2f%n", twelveInch);
@@ -81,6 +81,8 @@ public class OrderScreen {
         newPizza.setSizeAndBasePrice(size);
         return newPizza;
     }
+
+    // This method creates a sub-menu loop specifically for customizing the pizza. It accepts the currentPizza object as a parameter allowing the users choices to directly modify the existing pizza
     public static void customizePizza(Pizza currentPizza) {
         boolean customize = true;
         while (customize) {
@@ -111,6 +113,8 @@ public class OrderScreen {
             }
         }
     }
+
+    // Helper method only used to by the customizePizza() . It loops the user to add multiple toppings before exiting the menu and provides immediate feedback on the users current price
     private static void getMeat(Pizza pizza){
         boolean addingMeat = true;
         while (true) {
@@ -161,6 +165,7 @@ public class OrderScreen {
         }
     }
 
+    // Helper method only used to by the customizePizza() . It loops the user to add multiple toppings before exiting the meni and provides immediate feedback on the users current price
     private static void getCheese(Pizza pizza) {
         boolean addingCheese = true;
         while (true) {
@@ -199,6 +204,7 @@ public class OrderScreen {
         }
     }
 
+    // Helper method only used to by the customizePizza() . It loops the user to add multiple toppings before exiting the meni and provides immediate feedback on the users current price
     private static void getIncludedToppings(Pizza pizza) {
             boolean addingIncludedToppings = true;
             while (true) {
@@ -265,6 +271,7 @@ public class OrderScreen {
             }
     }
 
+    // Helper method for the new order
     private static void getCrust(Pizza pizza) {
         boolean validChoice = false;
         while (!validChoice) {

@@ -16,3 +16,32 @@
 - Checkout: Finalizes the order, displays the final price for the customer and add the confirmed order to the ReceiptWriter
 - ReceiptWriter: Writes the completed order details and prices onto a file for record-keeping
 - Selections: Holds the constants for all the menu items
+
+## Interesting Code
+- Pricing rules are hidden inside the pizza object. External classes like OrderScreen just call pizza.addMeat("Pepperoni") and don't need to know the size cost calculation
+- The method instantly updates the private this.totalPrice field ensuring the price displayed is accurate immediately after every selection
+
+  public void addMeat(String meat) {// Added meat to the premiumMeat list, determines the price and correctly adds it to the running totaPrice
+  this.premiumMeat.add(meat);
+  double meatPrice = 0.0;
+  double extraMeat = 0.0;
+
+            if (this.size.equalsIgnoreCase("8-inch")) {
+                meatPrice = 1.00;
+                extraMeat = .50;
+            } else if (this.size.equalsIgnoreCase("12-inch")) {
+                meatPrice = 2.00;
+                extraMeat = 1.00;
+            } else if (this.size.equalsIgnoreCase("16-inch")) {
+                meatPrice = 3.00;
+                extraMeat = 1.50;
+            }
+            else {
+                System.out.println("Error! Please select pizza size!");
+                return;
+                }
+        if (meat.equalsIgnoreCase(Selections.extraMeat)) {
+            meatPrice += extraMeat;
+        }
+        this.totalPrice += meatPrice;
+  }

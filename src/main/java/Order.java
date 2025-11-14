@@ -6,6 +6,8 @@ public class Order {
     private ArrayList<String> garlicKnots;
     private double otherProducts;
 
+    //Initializes the order object and requires a pizza object to start the order.
+// It instantiates the ArrayLists to ensure they are empty from the beginning
     public Order(Pizza pizza) {
         this.currentPizza = pizza;
         this.drinks = new ArrayList<>();
@@ -13,20 +15,23 @@ public class Order {
         this.otherProducts = 0.0;
     }
 
+    // Adds drink to the ArrayList and updates the price
     public void addDrink(String flavor, String size, double price) {
         this.drinks.add(flavor);
         this.otherProducts += price;
     }
 
+    // Adds garlic knots to the ArrayList and updates the price
     public void addGarlicKnots(String size, double price) {
         this.garlicKnots.add(size);
         this.otherProducts += price;
     }
 
-    public double getTotalPrice() {
+    public double getTotalPrice() { // Calculates the total price by calling the getPrice method on the currentPizza object
         return this.currentPizza.getPrice() + this.otherProducts;
     }
 
+    // Getter/Setter methods allows the other classes to read the data and then change it
     public Pizza getCurrentPizza() {
         return currentPizza;
     }

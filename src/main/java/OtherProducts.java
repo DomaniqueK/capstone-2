@@ -4,12 +4,12 @@ public class OtherProducts {
     private Scanner scanner;
     private Order currentOrder;
 
-    public OtherProducts(Order order, Scanner scanner) {
+    public OtherProducts(Order order, Scanner scanner) { // This constructor accepts the order and scanner as parameter
         this.currentOrder = order;
         this.scanner = scanner;
     }
 
-    public void getDrink() {
+    public void getDrink() { // Presents the drink menu, gathers the input, calculates the price and updates the order
         double small = 2.00;
         double medium = 2.50;
         double large = 3.00;
@@ -48,7 +48,7 @@ public class OtherProducts {
         }
     }
 
-    private String getFlavor(String choice) {
+    private String getFlavor(String choice) { // Converts the menu choice into a string
         switch (choice) {
             case "1":
                return  "Coke";
@@ -70,6 +70,7 @@ public class OtherProducts {
         }
     }
 
+    // Helper method to determine the correct price based on size
     private double getDrinkPrice(String size, double s, double m, double l) {
         if (size.equalsIgnoreCase("Small")) return s;
         if (size.equalsIgnoreCase("Medium")) return m;
@@ -77,6 +78,7 @@ public class OtherProducts {
         return 0.0;
     }
 
+    // Gives you the choice add garlic knots or not
     public void getGarlicKnots() {
         double knotPrice = 1.50;
         String garlicKnots = "Small Garlic Knots";

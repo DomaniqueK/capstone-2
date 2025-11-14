@@ -14,7 +14,7 @@ public class Pizza {
     String toppingsIncluded;
     String crust;
 
-    public void addMeat(String meat) {
+    public void addMeat(String meat) {// Added meat to the premiumMeat list, determines the price and correctly adds it to the running totaPrice
         this.premiumMeat.add(meat);
         double meatPrice = 0.0;
         double extraMeat = 0.0;
@@ -39,7 +39,7 @@ public class Pizza {
         this.totalPrice += meatPrice;
     }
 
-    public void addCheese(String cheese) {
+    public void addCheese(String cheese) {// Added meat to the premiumCheese list, determines the price and correctly adds it to the running totaPrice
         double cheesePrice = 0.00;
         double extraCheese = 0.00;
         this.premiumCheese.add(cheese);
@@ -66,28 +66,37 @@ public class Pizza {
         this.totalPrice += cheesePrice;
     }
 
+    // Adds free toppings to the list and assigns the price as 0.0 ensuring the total price is not affected
     public void addIncludedToppings(String toppingsIncluded) {
         this.includedToppings.add(toppingsIncluded);
         double included = 0.0;
     }
 
+    // Returns the final calculated price to Order/orderScreen classes etc
     public double getPrice() {
         return totalPrice;
     }
 
+    // Returns a copy of the list to the order or checkout classes so that its able to print on the receipt
     public ArrayList<String> getPremiumMeat() {
         return premiumMeat;
     }
+
+    // Returns a copy of the list to the order or checkout classes so that its able to print on the receipt
     public ArrayList<String> getPremiumCheese() {
         return premiumCheese;
     }
+
+    // Returns a copy of the list to the order or checkout classes so that its able to print on the receipt
     public ArrayList<String> getIncludedToppings() {
         return includedToppings;
     }
 
-    public Pizza() {
+    public Pizza() { // This constructor allows a new pizza object to be created before its properties are set
 
     }
+
+    // This method assigns the correct base price based on the size
     public void setSizeAndBasePrice(String size) {
         this.size = size;
 
@@ -100,6 +109,7 @@ public class Pizza {
         }
     }
 
+    //Sets the chosen crust type
     public void setCrust(String crust) {
         this.crust = crust;
     }
