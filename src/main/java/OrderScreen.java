@@ -56,6 +56,7 @@ public class OrderScreen {
             System.out.printf("1) 8-inch %.2f%n", eightInch);
             System.out.printf("2) 12-inch %.2f%n", twelveInch);
             System.out.printf("3) 16-inch %.2f%n", sixteenInch);
+            System.out.print("Enter your selection: \n ");
 
             String choice = scanner.nextLine().trim();
             switch (choice) {

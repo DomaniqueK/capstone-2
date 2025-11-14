@@ -4,18 +4,17 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Receipt {
-    Pizza currentOrder;
+public class ReceiptWriter {
 
-    public static void saveReceipt(Order currentOrder) {
+    public static void saveReceipt(Order order) {
         String time = generateTime();
-        Pizza pizza = currentOrder.getCurrentPizza();
-        try {
-            FileWriter fileWriter = new FileWriter("src/main/resources/receipt.txt");
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        String filePath = "src/main/resources/receipts";
+        String receiptName = filePath + "/" + time + ".txt";
+        Pizza pizza = order.getCurrentPizza();
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(receiptName))) {
 
             bufferedWriter.write("Receipt: \n");
-            bufferedWriter.write("Nique's Pizza-Licious Pizzeria \n");
+            bufferedWriter.write("Nique's Pizzeria \n");
             bufferedWriter.write("Order date: " + time + "\n");
             for (String selection : pizza.getPremiumMeat()) {
                 bufferedWriter.write("Meat: " + selection + "\n");
@@ -26,24 +25,25 @@ public class Receipt {
             for (String selection : pizza.getIncludedToppings()) {
                 bufferedWriter.write("Included Toppings: " + selection + "\n");
             }
-            for (String selection : currentOrder.getDrinks()) {
+            for (String selection : order.getDrinks()) {
                 bufferedWriter.write("Drink: " + selection + "\n");
             }
-            for (String selection : currentOrder.getGarlicKnots()) {
+            for (String selection : order.getGarlicKnots()) {
                 bufferedWriter.write("Garlic Knots: " + selection + "\n");
             }
-            bufferedWriter.write("\n Total: $ " + currentOrder.getTotalPrice() + "\n");
+            bufferedWriter.write("\n ----------------------------------- \n");
+            bufferedWriter.write("\n Total: $ " + order.getTotalPrice() + "\n");
             bufferedWriter.write("Visit us again soon!");
 
             bufferedWriter.close();
 
         } catch (IOException e) {
-            System.out.println("Error printing receipt!" + e);
+            System.out.println("Error printing receipts!" + e);
         }
     }
 
-    public static String generateTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMM d, yyyy HH:mm");
+    private static String generateTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         LocalDateTime date = LocalDateTime.now();
         return date.format(formatter);
     }

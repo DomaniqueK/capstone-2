@@ -12,7 +12,7 @@ public class HomeScreen {
         boolean running = true;
         while (running) {
             System.out.println("\n Home Screen \n");
-            System.out.println("Welcome to Nique's Pizza-Licious Pizzeria");
+            System.out.println("Welcome to Nique's Pizzeria");
             System.out.println("1) New Order");
             System.out.println("2) Exit");
             System.out.print("Enter you choice: ");
@@ -31,6 +31,4 @@ public class HomeScreen {
             }
         }
     }
-
-
 }
